@@ -1,6 +1,10 @@
 <?php
 
 //upload.php
+ 
+
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$today = date("Y-m-d H:i:s");
 
 $folder_name = 'upload/';
 // tạo folder ảnh 
@@ -13,15 +17,19 @@ if(!empty($_FILES))
  $location = $folder_name . $_FILES['file']['name']; // nơi chỉ định lưu file 
  // cái này để  tên đường dẫn và tên file luuw 
  move_uploaded_file($temp_file, $location); 
+
  //  move_uploaded_file  dùng để di chuyển tập tin được tải lên vào một nơi được chỉ định
 
 }
 
 if(isset($_POST["name"]))
 {
+      
  $filename = $folder_name.$_POST["name"];
  unlink($filename);
 }
+
+
 
 $result = array();
 
@@ -49,5 +57,11 @@ if(false !== $files)
 }
 $output .= '</div>';
 echo $output;
+
+  
+
+
+
+
 
 ?>

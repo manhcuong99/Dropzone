@@ -39,8 +39,18 @@
     $(document).ready(function() {
 
         Dropzone.options.dropzoneFrom = {
+ 
+
+        
+
+
+
+
+
+
+
           parallelUploads: 5,
-              //  tải song song 5 ảnh liền lúc 
+          //  tải song song 5 ảnh liền lúc 
             autoProcessQueue: false,
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             init: function() {
@@ -89,7 +99,7 @@
                 url: "upload.php",
                 method: "POST",
                 data: {
-                    name: name
+                    name: name ,request: 1
                 },
                 success: function(data) {
                    
@@ -99,6 +109,18 @@
         });
 
         // khi sử dụng click nó sẽ tìm id sử dụng ajax để lấy id và trả về list đã xóa 
+
+        $(".dropzone").dropzone({
+       addRemoveLinks: true,
+       removedfile: function(file) {
+           var _ref;
+            return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+         }
+
+      
+});
+
+        
 
     });
 </script>
